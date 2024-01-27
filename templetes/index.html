@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <style>
+* {
+ 
+  box-sizing: border-box;
+}
+</style>
+  <title> Crop Recommendation system</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+
+</head>
+
+<body >
+<style>
+body {
+  background-color #ffff00;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
+</style>
+
+
+ <div class="login">
+
+ <style>
+h1,P{
+   background-color: green;
+  border: 2px solid black;
+  outline: #752gs6 solid 10px;
+  margin: auto;  
+  padding: 20px;
+  text-align: center;
+}
+</style>
+	<h1 style="text-align:center;" >Crop Recommendation system </h1>
+	<P style="text-align:center;" >Recommend a suitable Crop for Your farm</P>
+
+<style>
+form{
+   background-color :white;
+  border: 0.5px solid black;
+  outline: #752gs6 solid 10px;
+  margin: auto;  
+  padding: 20px;
+  text-align: center;
+  
+}
+</style>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+		
+    	<input type="text" text-align =center-left name="N" placeholder="Nitrogen" required="required" />
+        <input type="text" text-align=center-right name="P" placeholder="Phosphorus" required="required" /><br><br>
+		<input type="text" text-align=center-left name="K" placeholder="Potassium" required="required" />
+		<input type="text" text-align=center-right name="temperature" placeholder="temperature" required="required" /><br><br>
+        <input type="text" text-algin=center-left name="humidity" placeholder="Humidity" required="required" />
+		<input type="text" text-algin=center-right name="rainfall" placeholder="rainfall" required="required" /><br><br>
+        <input type="text" text-algin=center-right name="ph" placeholder="ph" required="required" /><br>
+		<br>
+		<br>
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Crop Recommendation</button>
+		
+    </form>
+
+   <br>
+   <br>
+
+{{  prediction_text}}
+ </div>
+
+
+
+</body>
+</html>
